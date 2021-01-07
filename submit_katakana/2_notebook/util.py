@@ -7,7 +7,7 @@ def loaddata():
     """
     データを読む関数
     """
-    test_data = np.load("../1_data/test_data.npy")
+    test_data = np.load("../1_data/train_data.npy")
     return test_data
 
 
@@ -20,20 +20,20 @@ def accuracy(func_predict, test_data):
     
     # データ数のチェック
     data_size = len(test_data)
-    if data_size<14500:
+    if data_size<3000:
         error = "label_predのサイズが足りていません"
         print(data_size, error)
         print('Test loss:', error)
         print('Test accuracy:', error)
         return
-    elif data_size>14500:
+    elif data_size>3000:
         error = "label_predのサイズが多すぎます"
         print(data_size, error)
         print('Test loss:', error)
         print('Test accuracy:', error)        
         return
 
-    test_label = np.load("../1_data/test_label.npy")
+    test_label = np.load("../1_data/train_label.npy")
     
     
     # 予測
